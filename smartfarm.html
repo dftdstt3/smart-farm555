@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Farm IoT</title>
+<link rel="stylesheet" href="smartfarm.css">
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+
+<!-- เวทีขนาด 1920x1080 (พื้นหลังรูปที่ 2 ฝังอยู่ใน smartfarm.css แล้ว) ย่อ/ขยายให้เต็มจอด้วย script.js -->
+<main class="stage" id="stage">
+  <h1 class="sr-only">Smart Farm IoT</h1>
+
+  <svg class="art" viewBox="0 0 1920 1080" aria-hidden="true">
+    <defs>
+      <linearGradient id="drop" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#52b26b"/><stop offset="1" stop-color="#26854a"/>
+      </linearGradient>
+    </defs>
+
+    <!-- วงกลมรองไอคอน (ปิดเงาไอคอนจางๆ ในรูปพื้นหลัง) -->
+    <g fill="#e9eecc"><circle cx="501" cy="397" r="76"/><circle cx="956" cy="397" r="76"/><circle cx="1412" cy="397" r="76"/></g>
+
+    <!-- ไอคอนเทอร์โมมิเตอร์ -->
+    <g fill="none" stroke="#1f7a43" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M483 412V359A15 15 0 0 1 513 359V412A25 25 0 1 1 483 412Z"/>
+      <path d="M527 357h11M527 374h11M527 391h7"/>
+    </g>
+    <circle cx="498" cy="432" r="13" fill="#1f7a43"/><rect x="494" y="378" width="8" height="44" rx="4" fill="#1f7a43"/>
+
+    <!-- ไอคอนหยดน้ำ -->
+    <path d="M956.5 347C975 372 995 392 995 416.5A38.5 38.5 0 0 1 918 416.5C918 392 938 372 956.5 347Z" fill="url(#drop)"/>
+    <path d="M936 413A22 22 0 0 0 951 438" fill="none" stroke="#e6f5dc" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- ไอคอนระดับน้ำ -->
+    <path d="M1412 344C1423 360 1434 370 1434 381A22 22 0 0 1 1390 381C1390 370 1401 360 1412 344Z" fill="#3b9b57"/>
+    <g fill="none" stroke="#3b9b57" stroke-width="6.5" stroke-linecap="round">
+      <path d="M1361.5 418q12.25-12 24.5 0t24.5 0 24.5 0 24.5 0"/>
+      <path d="M1361.5 431q12.25-12 24.5 0t24.5 0 24.5 0 24.5 0"/>
+      <path d="M1361.5 444q12.25-12 24.5 0t24.5 0 24.5 0 24.5 0"/>
+    </g>
+
+    <!-- ตัวเลขค่าเซนเซอร์ (JS สุ่มค่าให้) -->
+    <g class="sensor" id="s-temp">
+      <text class="num" x="426" y="718">2</text><text class="num" x="507" y="718">5</text>
+      <circle cx="568" cy="647" r="6.8" fill="none" stroke="#185030" stroke-width="4.6"/>
+      <text class="unit" x="654" y="701" style="font-size:88px">C</text>
+    </g>
+    <g class="sensor" id="s-humid">
+      <text class="num" x="875" y="718">6</text><text class="num" x="961" y="718">0</text>
+      <text class="unit" x="1074.5" y="700" style="font-size:88px">%</text>
+    </g>
+    <g class="sensor" id="s-water">
+      <text class="num" x="1316" y="718">1</text><text class="num" x="1403" y="718">0</text>
+      <text class="unit" x="1515.5" y="710" style="font-size:82px">cm</text>
+    </g>
+  </svg>
+
+  <!-- ปุ่ม toggle: กดคลิก / ลาก / ใช้คีย์บอร์ด (Space, Enter, ลูกศรซ้าย-ขวา) -->
+  <button class="toggle" id="t-temp"  data-key="temp"  role="switch" aria-checked="true" aria-label="อุณหภูมิ"  style="left:428px;top:797px"><span class="knob"></span></button>
+  <button class="toggle" id="t-humid" data-key="humid" role="switch" aria-checked="true" aria-label="ความชื้น"  style="left:884px;top:797px"><span class="knob"></span></button>
+  <button class="toggle" id="t-water" data-key="water" role="switch" aria-checked="true" aria-label="ระดับน้ำ" style="left:1339px;top:792px"><span class="knob"></span></button>
+</main>
+
+<script src="smartfarm.js"></script>
+</body>
+</html>
